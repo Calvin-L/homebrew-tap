@@ -9,6 +9,8 @@ Miscellaneous Homebrew packages.
  - [cvc5](https://cvc5.github.io/), an SMT solver
  - [nix](https://nixos.org/), a package manager (this is for bootstrapping Nix
    only; you'll want to install Nix with Nix and then uninstall this)
+ - [coqhammer](https://coqhammer.github.io/), a very powerful Coq tactics
+   library
 
 Also, some of my own projects:
 
