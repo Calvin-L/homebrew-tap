@@ -6,6 +6,7 @@ class TlatoolsAT172 < Formula
   # so we need to clone rather than download.
   url "https://github.com/tlaplus/tlaplus.git", revision: "v1.7.2"
   license "MIT"
+  revision 1
 
   depends_on "java"
   depends_on "ant" => :build
@@ -29,7 +30,6 @@ class TlatoolsAT172 < Formula
 
     exes = [
       ["tlc2",     "tlc2.TLC"],
-      ["tlc2repl", "tlc2.REPL"],
       ["tla2sany", "tla2sany.SANY"],
       ["tla2xml",  "tla2sany.xml.XMLExporter"],
       ["pcal",     "pcal.trans"],

@@ -9,6 +9,7 @@ class TlatoolsAT171 < Formula
   # url "https://github.com/tlaplus/tlaplus/archive/v1.7.0.tar.gz"
   # sha256 "837eb6a0ee85269bf41e714261d1cf5cfa473de44c4f55e434054a31a73d20ce"
   license "MIT"
+  revision 1
 
   depends_on "java"
   depends_on "ant" => :build
@@ -32,7 +33,6 @@ class TlatoolsAT171 < Formula
 
     exes = [
       ["tlc2",     "tlc2.TLC"],
-      ["tlc2repl", "tlc2.REPL"],
       ["tla2sany", "tla2sany.SANY"],
       ["tla2xml",  "tla2sany.xml.XMLExporter"],
       ["pcal",     "pcal.trans"],
