@@ -5,8 +5,10 @@ class CoqhammerAT132 < Formula
   version "1.3.2"
   sha256 "d334417f5934fc222578382977e66f7eccb7f2e6b8d9f6570d5afe1a878ca70f"
   license "LGPL2"
+  revision 1
 
   depends_on "ocaml" => :build
+  depends_on "ocaml-findlib" => :build
   depends_on "coq"
 
   def install
