@@ -1,9 +1,9 @@
 class Ezpsl < Formula
   desc ""
   homepage "https://github.com/Calvin-L/ezpsl"
-  url "https://github.com/Calvin-L/ezpsl/archive/8557d45.tar.gz"
-  version "0.3"
-  sha256 "545e15355f101c0401c70d329abf3427ec65ce2cad11d122edd2f95ff361f241"
+  url "https://github.com/Calvin-L/ezpsl/archive/031f9679c1bc1fe9390f6601cff65e4c208ec4b5.tar.gz"
+  version "0.4"
+  sha256 "154489ef3c015b932d5b2c6ea8158ff6ede842fb00409d18b0c86be4d6b755e4"
   license "MIT"
 
   depends_on "haskell-stack" => :build
