@@ -6,7 +6,6 @@ class Ezpsl < Formula
   sha256 "545e15355f101c0401c70d329abf3427ec65ce2cad11d122edd2f95ff361f241"
   license "MIT"
 
-  depends_on "ghc@8.8" => :build
   depends_on "haskell-stack" => :build
 
   def install
@@ -16,8 +15,8 @@ class Ezpsl < Formula
     jobs = ENV.make_jobs
     ENV.deparallelize
 
-    system "stack", "--system-ghc", "--compiler", "ghc-8.8", "-j#{jobs}", "build"
-    system "stack", "--system-ghc", "--compiler", "ghc-8.8", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
+    system "stack", "-j#{jobs}", "build"
+    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
   end
 
   test do
