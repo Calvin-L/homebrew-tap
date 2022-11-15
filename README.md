@@ -6,6 +6,10 @@ Miscellaneous Homebrew packages.
 
  - [tlatools](https://lamport.azurewebsites.net/tla/tla.html), command-line
    tools for working with TLA+
+ - [tlaps](https://tla.msr-inria.inria.fr/tlaps/content/Home.html), the TLA+
+   proof system (plus its various obscure dependencies like
+   [zenon](https://github.com/zenon-prover/zenon)
+   and [ls4](https://github.com/quickbeam123/ls4))
  - [cvc5](https://cvc5.github.io/), an SMT solver
  - [nix](https://nixos.org/), a package manager (this is for bootstrapping Nix
    only; you'll want to install Nix with Nix and then uninstall this)
