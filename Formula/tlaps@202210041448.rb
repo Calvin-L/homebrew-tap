@@ -33,6 +33,9 @@ class TlapsAT202210041448 < Formula
     <<~EOS
       The TLAPS library files are installed in #{prefix}/lib/tlaps/.  You probably
       want to add this path to your TLA+ module search path.
+
+      TLAPS uses a very old version of Isabelle; this distribution does not
+      include it.  Hopefully it will in the future.
     EOS
   end
 
