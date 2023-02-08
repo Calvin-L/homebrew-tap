@@ -5,6 +5,7 @@ class TlapsAT202210041448 < Formula
   version "202210041448"
   sha256 "c6c046f8cfc211bfee912bd6d6d736d9375411c7dad109bd3651c748e0d5550c"
   license "BSD2"
+  revision 1
 
   depends_on "tlapm"
   depends_on "ls4"
@@ -14,19 +15,19 @@ class TlapsAT202210041448 < Formula
   depends_on "ptl-to-trp-translator"
 
   def install
-    (bin/"tlapm").write_env_script "#{HOMEBREW_PREFIX}/opt/tlapm/bin/tlapm", PATH: [
-          "#{HOMEBREW_PREFIX}/opt/ls4/bin",
-          "#{HOMEBREW_PREFIX}/opt/z3/bin",
-          # "#{HOMEBREW_PREFIX}/opt/cvc4/bin",
-          "#{HOMEBREW_PREFIX}/opt/zenon/bin",
-          "#{HOMEBREW_PREFIX}/opt/ptl-to-trp-translator/bin",
+    (bin/"tlapm").write_env_script "#{Formula["tlapm"].bin}/tlapm", PATH: [
+          "#{Formula["ls4"].bin}",
+          "#{Formula["z3"].bin}",
+          # "#{Formula["cvc4"].bin}",
+          "#{Formula["zenon"].bin}",
+          "#{Formula["ptl-to-trp-translator"].bin}",
           "#{HOMEBREW_PREFIX}/bin",
           "/usr/local/bin",
           "/usr/bin",
           "/bin",
         ].join(":")
     mkdir_p "#{lib}"
-    ln_s "#{HOMEBREW_PREFIX}/opt/tlapm/lib/tlaps", "#{lib}/tlaps"
+    ln_s "#{Formula["tlapm"].lib}/tlaps", "#{lib}/tlaps"
   end
 
   def caveats
@@ -41,5 +42,18 @@ class TlapsAT202210041448 < Formula
 
   test do
     system "#{bin}/tlapm", "--config"
+
+    (testpath/"Test.tla").write <<~EOS
+      ---- MODULE Test ----
+
+      EXTENDS Naturals, TLAPS
+
+      THEOREM foo == 1 + 1 = 2
+          OBVIOUS
+
+      ====
+    EOS
+
+    system "#{bin}/tlapm", testpath/"Test.tla"
   end
 end
