@@ -2,6 +2,10 @@
 
 Miscellaneous Homebrew packages.
 
+Grab this tap by running
+
+    brew tap calvin-l/tap
+
 ## Important Packages
 
  - [tlatools](https://lamport.azurewebsites.net/tla/tla.html), command-line
