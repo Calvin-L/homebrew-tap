@@ -12,7 +12,8 @@ Grab this tap by running
    tools for working with TLA+
  - [tlaps](https://tla.msr-inria.inria.fr/tlaps/content/Home.html), the TLA+
    proof system (plus its various obscure dependencies like
-   [zenon](https://github.com/zenon-prover/zenon)
+   [zenon](https://github.com/zenon-prover/zenon),
+   [isabelle@2011-1](https://isabelle.in.tum.de/website-Isabelle2011-1/),
    and [ls4](https://github.com/quickbeam123/ls4))
  - [cvc5](https://cvc5.github.io/), an SMT solver
  - [nix](https://nixos.org/), a package manager (this is for bootstrapping Nix
