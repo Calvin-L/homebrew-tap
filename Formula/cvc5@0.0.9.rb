@@ -12,6 +12,7 @@ class Cvc5AT009 < Formula
   depends_on "python3-toml@0.10.2" => :build
   depends_on "java" => :build
   depends_on "symfpu@2019.5.17" => :build # header-only library
+  depends_on "antlr@3.4" => :build
   depends_on "libantlr3c"
   depends_on "gmp"
   depends_on "libpoly"
