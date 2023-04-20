@@ -1,9 +1,9 @@
 class CoqhammerAT132 < Formula
   desc "An Automated Reasoning Hammer Tool for Coq"
   homepage "https://coqhammer.github.io/"
-  url "https://github.com/lukaszcz/coqhammer/archive/refs/tags/v1.3.2+8.16.tar.gz"
+  url "https://github.com/lukaszcz/coqhammer/archive/refs/tags/v1.3.2+8.17.tar.gz"
   version "1.3.2"
-  sha256 "5844ff4cd093c22f103f39407c97ef6d70cbbff6e19a19302bb908d3177e660c"
+  sha256 "e71f1b8f738be3ec663dc2f28805173b12361ff955239ece9144b5f9363692d2"
   license "LGPL2"
   revision 5
 
