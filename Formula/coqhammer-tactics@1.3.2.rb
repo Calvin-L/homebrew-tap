@@ -5,7 +5,7 @@ class CoqhammerTacticsAT132 < Formula
   version "1.3.2"
   sha256 "e71f1b8f738be3ec663dc2f28805173b12361ff955239ece9144b5f9363692d2"
   license "LGPL2"
-  revision 3
+  revision 4
 
   depends_on "ocaml" => :build
   depends_on "ocaml-findlib" => :build
