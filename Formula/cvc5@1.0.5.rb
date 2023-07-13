@@ -5,7 +5,7 @@ class Cvc5AT105 < Formula
   url "https://github.com/cvc5/cvc5/archive/cvc5-#{version}.tar.gz"
   sha256 "a9705569fe36c70291dd1eb6dc5f542d33da51f82da46558e3455ed6995b1b7a"
   license "BSD3"
-  revision 1
+  revision 2
 
   depends_on "cmake" => :build
   depends_on "cadical" => :build
@@ -17,22 +17,14 @@ class Cvc5AT105 < Formula
   depends_on "antlr@3.4" => :build
   depends_on "libantlr3c"
   depends_on "gmp"
+  depends_on "libpoly-b3a3bf82"
 
   def install
-    system "./configure.sh", "production", "--no-poly", "--prefix=#{prefix}"
+    system "./configure.sh", "production", "--prefix=#{prefix}"
     cd "build" do
       system "make"
       system "make", "install"
     end
-  end
-
-  def caveats
-    <<~EOS
-      This cvc5 package is compiled WITHOUT libpoly support, so certain
-      nonlinear reasoning features might not be available.  Today (2023/4/2)
-      there is no sufficiently-up-to-date package of libpoly available.  See
-      https://github.com/cvc5/cvc5/issues/7993
-    EOS
   end
 
   test do
