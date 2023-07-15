@@ -5,7 +5,7 @@ class TlapsAT202210041448 < Formula
   version "202210041448"
   sha256 "c6c046f8cfc211bfee912bd6d6d736d9375411c7dad109bd3651c748e0d5550c"
   license "BSD2"
-  revision 3
+  revision 4
 
   depends_on "tlapm@#{version}"
   depends_on "ls4"
@@ -38,18 +38,6 @@ class TlapsAT202210041448 < Formula
         ISABELLE_PATH: [
           "#{Formula["tlaps-isabelle-heap@#{version}"].lib}/Isabelle2011-1/heaps"
         ].join(":")
-    mkdir_p "#{lib}"
-    ln_s "#{Formula["tlapm"].lib}/tlaps", "#{lib}/tlaps"
-  end
-
-  def caveats
-    <<~EOS
-      The TLAPS library files are installed in #{lib}/tlaps/.  You probably
-      want to add this path to your TLA+ module search path.
-
-      TLAPS uses a very old version of Isabelle; this distribution does not
-      include it.  Hopefully it will in the future.
-    EOS
   end
 
   test do
