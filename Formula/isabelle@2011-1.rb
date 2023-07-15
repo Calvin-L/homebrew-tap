@@ -5,11 +5,11 @@ class IsabelleAT20111 < Formula
   sha256 "48d77fe31a16b44f6015aa7953a60bdad8fcec9e60847630dc7b98c053edfc08"
   license "BSD3"
   version "2011-1"
-  revision 1
+  revision 2
 
+  uses_from_macos "perl"
   depends_on "polyml" => :build
   depends_on "java"
-  # depends_on "perl" # Yes, but MacOS perl seems to be good enough
   depends_on "rlwrap"
 
   keg_only "this is a stripped-down and very old version of Isabelle (see caveats)"
