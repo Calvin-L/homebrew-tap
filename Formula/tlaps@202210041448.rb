@@ -5,13 +5,13 @@ class TlapsAT202210041448 < Formula
   version "202210041448"
   sha256 "c6c046f8cfc211bfee912bd6d6d736d9375411c7dad109bd3651c748e0d5550c"
   license "BSD2"
-  revision 4
+  revision 5
 
   depends_on "tlapm@#{version}"
   depends_on "ls4"
   depends_on "z3"
   depends_on "cvc5@1.0.5"
-  # depends_on "sri-csl/sri-csl/yices2" # NOTE 2023/7/15: currently broken
+  depends_on "sri-csl/sri-csl/yices2"
   depends_on "zenon"
   depends_on "ptl-to-trp-translator"
   depends_on "isabelle@2011-1"
@@ -27,6 +27,7 @@ class TlapsAT202210041448 < Formula
           "#{Formula["ls4"].bin}",
           "#{Formula["z3"].bin}",
           "#{libexec}",
+          "#{Formula["sri-csl/sri-csl/yices2"].bin}",
           "#{Formula["zenon"].bin}",
           "#{Formula["ptl-to-trp-translator"].bin}",
           "#{Formula["isabelle@2011-1"].bin}",
