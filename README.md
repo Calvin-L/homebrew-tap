@@ -20,6 +20,9 @@ Grab this tap by running
    only; you'll want to install Nix with Nix and then uninstall this)
  - [coqhammer](https://coqhammer.github.io/), a very powerful Coq tactics
    library
+ - [compcert](https://compcert.org/), a formally-verified C compiler (NOTE:
+   CompCert is _not_ distributed under a permissive open-source license; it
+   is [only free for non-commercial use](https://github.com/AbsInt/CompCert/blob/v3.13/LICENSE))
 
 Also, some of my own projects:
 
