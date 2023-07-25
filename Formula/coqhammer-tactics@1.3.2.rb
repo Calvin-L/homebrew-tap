@@ -1,10 +1,10 @@
 class CoqhammerTacticsAT132 < Formula
-  desc "An Automated Reasoning Hammer Tool for Coq"
+  desc "Automated Reasoning Hammer Tool for Coq"
   homepage "https://coqhammer.github.io/"
   url "https://github.com/lukaszcz/coqhammer/archive/refs/tags/v1.3.2+8.17.tar.gz"
   version "1.3.2"
   sha256 "e71f1b8f738be3ec663dc2f28805173b12361ff955239ece9144b5f9363692d2"
-  license "LGPL2"
+  license "LGPL-2.1-only"
   revision 4
 
   depends_on "ocaml" => :build
@@ -12,12 +12,12 @@ class CoqhammerTacticsAT132 < Formula
   depends_on "coq"
 
   def install
-    # NOTE 2023/2/2: Coq 8.16 (or maybe Homebrew's Coq?) installs lib files
+    # NOTE: (2023/2/2) Coq 8.16 (or maybe Homebrew's Coq?) installs lib files
     # directly to lib/ instead of lib/ocaml/ like it used to.  Ocamlfind can't
     # find things there without help.
     ENV.prepend_path "OCAMLPATH", Formula["coq"].lib
 
-    # NOTE 2023/2/2 regarding COQPLUGININSTALL: Coq 8.16 searches for native
+    # NOTE: (2023/2/2) regarding COQPLUGININSTALL: Coq 8.16 searches for native
     # ("plugin") libraries in
     #
     #   HOMEBREW_PREFIX/lib/coq/../coq-core/..

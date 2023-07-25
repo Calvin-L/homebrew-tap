@@ -6,10 +6,8 @@ class Python3TomlAT0102 < Formula
   license "MIT"
   revision 1
 
-  depends_on "python@3.10" => [:build, :test]
-  # depends_on "python@3.8" => [:build, :test]
-  # depends_on "python@3.9" => [:build, :test]
   depends_on "python@3" => [:build, :test]
+  depends_on "python@3.10" => [:build, :test]
 
   def pythons
     deps.map(&:to_formula).sort_by(&:version)

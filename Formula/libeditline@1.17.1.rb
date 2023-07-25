@@ -1,10 +1,9 @@
 class LibeditlineAT1171 < Formula
-  desc "A small replacement for GNU readline()"
+  desc "Small replacement for GNU readline()"
   homepage "https://troglobit.com/projects/editline/"
   url "https://github.com/troglobit/editline/releases/download/1.17.1/editline-1.17.1.tar.gz"
-  version "1.17.1"
   sha256 "781e03b6a935df75d99fb963551e2e9f09a714a8c49fc53280c716c90bf44d26"
-  license "CNews"
+  license "Spencer-94"
 
   def install
     system "./configure", "--prefix=#{prefix}"

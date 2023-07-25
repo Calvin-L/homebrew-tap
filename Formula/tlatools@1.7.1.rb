@@ -1,56 +1,64 @@
 class TlatoolsAT171 < Formula
-  desc "TLA+ command line tools"
+  desc "TLA+ command-line tools"
   homepage "https://lamport.azurewebsites.net/tla/tla.html"
-  version "1.7.1-2"
-  # url "https://github.com/tlaplus/tlaplus/archive/v1.7.1.tar.gz"
-  # sha256 "db2c8076d475564383791380f37b89c1ab161f63407c612d7f2a7f50ff6aff96"
   url "https://github.com/tlaplus/tlaplus.git", revision: "v1.7.1"
-  # version "1.7.0"
-  # url "https://github.com/tlaplus/tlaplus/archive/v1.7.0.tar.gz"
-  # sha256 "837eb6a0ee85269bf41e714261d1cf5cfa473de44c4f55e434054a31a73d20ce"
+  version "1.7.1"
   license "MIT"
-  revision 1
+  revision 4
 
-  depends_on "java"
   depends_on "ant" => :build
+  depends_on "java"
 
   def install
     cd "tlatools/org.lamport.tlatools"
 
-    # NOTE 2020/11/17: the jar now includes the "TLC test framework", which
+    # NOTE: (2020/11/17) the jar now includes the "TLC test framework", which
     # means we need to compile-test before dist.  See:
     # https://github.com/tlaplus/tlaplus/commit/f7ea7a6219f18db9f69d4a296abec597bf8264c6
     #
-    # NOTE 2021/11/23: the ant build file is missing a dependency on the "info"
+    # NOTE: (2021/11/23) the ant build file is missing a dependency on the "info"
     # target, which generates version info that gets baked into the final jar.
     # So, we need to invoke "info" manually.
     system "ant", "-f", "customBuild.xml", "info", "compile", "compile-test", "dist"
 
     mkdir_p bin
-    mkdir_p lib
+    mkdir_p libexec
 
-    cp "dist/tla2tools.jar", lib
+    cp "dist/tla2tools.jar", libexec
 
     exes = [
       ["tlc2",     "tlc2.TLC"],
       ["tla2sany", "tla2sany.SANY"],
       ["tla2xml",  "tla2sany.xml.XMLExporter"],
       ["pcal",     "pcal.trans"],
-      ["tla2tex",  "tla2tex.TLA"]]
+      ["tla2tex",  "tla2tex.TLA"],
+    ]
 
-    for exe, cls in exes do
-      (bin/exe).write("#!/bin/bash\nexec java -XX:+UseParallelGC -DTLA-Library=\"$TLA_PATH\" -cp '#{lib}/tla2tools.jar' #{cls} \"$@\"\n")
+    exes.each do |exe, cls|
+      script = <<~EOS
+        #!/bin/bash
+        exec java -XX:+UseParallelGC -DTLA-Library="$TLA_PATH" -cp '#{libexec}/tla2tools.jar' #{cls} "$@"
+      EOS
+      (bin/exe).write script
       chmod 0755, bin/exe
     end
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    (testpath/"Test.tla").write("---- MODULE Test ----\nEXTENDS Integers\nCONSTANT MAX\nVARIABLES x\nInit == x=1\nNext == x < MAX /\\ x' = x + 1\n======\n")
-    (testpath/"Test.cfg").write("CONSTANT MAX = 10\nINIT Init\nNEXT Next\n")
+    (testpath/"Test.tla").write <<~EOS
+      ---- MODULE Test ----
+      EXTENDS Integers
+      CONSTANT MAX
+      VARIABLES x
+      Init == x=1
+      Next == x < MAX /\\ x' = x + 1
+      ======
+    EOS
+    (testpath/"Test.cfg").write <<~EOS
+      CONSTANT MAX = 10
+      INIT Init
+      NEXT Next
+    EOS
     system bin/"tlc2", "-deadlock", "-workers", "auto", "Test"
   end
 end

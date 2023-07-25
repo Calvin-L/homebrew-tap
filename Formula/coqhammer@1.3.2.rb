@@ -1,10 +1,10 @@
 class CoqhammerAT132 < Formula
-  desc "An Automated Reasoning Hammer Tool for Coq"
+  desc "Automated Reasoning Hammer Tool for Coq"
   homepage "https://coqhammer.github.io/"
   url "https://github.com/lukaszcz/coqhammer/archive/refs/tags/v1.3.2+8.17.tar.gz"
   version "1.3.2"
   sha256 "e71f1b8f738be3ec663dc2f28805173b12361ff955239ece9144b5f9363692d2"
-  license "LGPL2"
+  license "LGPL-2.1-only"
   revision 6
 
   depends_on "ocaml" => :build
@@ -13,14 +13,14 @@ class CoqhammerAT132 < Formula
   depends_on "coqhammer-tactics@1.3.2"
 
   def install
-    # NOTE 2023/2/2: Coq 8.16 (or maybe Homebrew's Coq?) installs lib files
+    # NOTE: (2023/2/2) Coq 8.16 (or maybe Homebrew's Coq?) installs lib files
     # directly to lib/ instead of lib/ocaml/ like it used to.  Ocamlfind can't
     # find things there without help.
     ENV.prepend_path "OCAMLPATH", Formula["coq"].lib
 
-    # NOTE 2023/2/2: See note in coqhammer-tactics about COQPLUGININSTALL.
+    # NOTE: (2023/2/2) See note in coqhammer-tactics about COQPLUGININSTALL.
 
-    # NOTE 2023/2/2: Makefile can't find coqhammer-tactics because $PATH
+    # NOTE: (2023/2/2) Makefile can't find coqhammer-tactics because $PATH
     # includes
     #
     #   /opt/homebrew/opt/coq/bin
@@ -32,7 +32,7 @@ class CoqhammerAT132 < Formula
     # This path has to match COQLIBINSTALL from the coqhammer-tactics formula.
     ENV.prepend_path "COQPATH", Formula["coqhammer-tactics@1.3.2"].lib/"coq/user-contrib"
 
-    # NOTE 2023/2/2: It seems that Coq 8.16 fully resolves its path when
+    # NOTE: (2023/2/2) It seems that Coq 8.16 fully resolves its path when
     # generating makefiles, so it writes something like
     #
     #   COQMF_COQLIB=/opt/homebrew/Cellar/coq/8.16.1/lib/coq/

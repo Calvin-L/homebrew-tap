@@ -1,20 +1,19 @@
 class AntlrAT34 < Formula
   desc "ANother Tool for Language Recognition"
   homepage "https://www.antlr.org/"
-  version "3.4"
-  url "https://github.com/antlr/website-antlr3/raw/gh-pages/download/antlr-#{version}-complete.jar"
+  url "https://github.com/antlr/website-antlr3/raw/gh-pages/download/antlr-3.4-complete.jar"
   sha256 "9d3e866b610460664522520f73b81777b5626fb0a282a5952b9800b751550bf7"
   license "BSD-3-Clause"
-
-  keg_only :versioned_formula
 
   livecheck do
     url "https://www.antlr.org/download.html"
     regex(/href=.*?antlr[._-]v?(\d+(?:\.\d+)+)-complete\.jar/i)
   end
 
-  depends_on "java"
+  keg_only :versioned_formula
+
   depends_on "openjdk" => :test
+  depends_on "java"
 
   def install
     prefix.install "antlr-#{version}-complete.jar"

@@ -1,4 +1,4 @@
-# NOTE 2023/7/13: CVC5 needs this unreleased version of libpoly.
+# NOTE: (2023/7/13) CVC5 needs this unreleased version of libpoly.
 # Adapted from https://github.com/SRI-CSL/homebrew-sri-csl/blob/933a9940fd7e339613021c56eb788650c68ead55/Formula/libpoly.rb
 class LibpolyB3a3bf82 < Formula
   desc "C library for manipulating polynomials"

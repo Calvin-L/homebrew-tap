@@ -1,18 +1,18 @@
 class IsabelleAT20111 < Formula
   desc "Isabelle is a generic proof assistant"
   homepage "https://isabelle.in.tum.de"
-  url "https://isabelle.in.tum.de/website-Isabelle2011-1/dist/Isabelle2011-1.tar.gz"
-  sha256 "48d77fe31a16b44f6015aa7953a60bdad8fcec9e60847630dc7b98c053edfc08"
-  license "BSD3"
+  url "https://isabelle.in.tum.de/website-Isabelle#{version}/dist/Isabelle#{version}.tar.gz"
   version "2011-1"
+  sha256 "48d77fe31a16b44f6015aa7953a60bdad8fcec9e60847630dc7b98c053edfc08"
+  license "BSD-3-Clause"
   revision 2
 
-  uses_from_macos "perl"
+  keg_only "this is a stripped-down and very old version of Isabelle (see caveats)"
+
   depends_on "polyml" => :build
   depends_on "java"
   depends_on "rlwrap"
-
-  keg_only "this is a stripped-down and very old version of Isabelle (see caveats)"
+  uses_from_macos "perl"
 
   # Lots of patches for compatibility with current PolyML (and other features).
   #  - Allow ISABELLE_PATH environment variable to point to other heaps
@@ -34,16 +34,16 @@ class IsabelleAT20111 < Formula
     rm_r "lib/fonts"
     rm_r "lib/logo"
 
-    inreplace "etc/settings", '/path/to/polyml/bin', Formula["polyml"].bin
-    inreplace "etc/settings", '/path/to/java/bin', Formula["java"].bin
-    inreplace "etc/settings", '/path/to/rlwrap/bin', Formula["rlwrap"].bin
+    inreplace "etc/settings", "/path/to/polyml/bin", Formula["polyml"].bin
+    inreplace "etc/settings", "/path/to/java/bin", Formula["java"].bin
+    inreplace "etc/settings", "/path/to/rlwrap/bin", Formula["rlwrap"].bin
 
     system "./build", "-b", "Pure"
     mkdir_p "#{libexec}/Isabelle2011-1"
     cp_r ".", "#{libexec}/Isabelle2011-1"
     system "#{libexec}/Isabelle2011-1/bin/isabelle", "install",
       "-d", "#{libexec}/Isabelle2011-1",
-      "-p", "#{bin}"
+      "-p", bin
   end
 
   def caveats

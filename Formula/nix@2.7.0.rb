@@ -1,10 +1,9 @@
 class NixAT270 < Formula
-  desc "A purely functional package manager"
+  desc "Purely functional package manager"
   homepage "https://nixos.org/"
   url "https://github.com/NixOS/nix/archive/2.7.0.tar.gz"
-  version "2.7.0"
   sha256 "db8943317f5562f27072b39f670e6016c7fc31de15ae38a2c409c74fd1329cc9"
-  license "LGPL2"
+  license "LGPL-2.1-only"
 
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
@@ -14,17 +13,17 @@ class NixAT270 < Formula
   depends_on "googletest" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "brotli"
   depends_on "boehmgc"
-  depends_on "openssl@1.1"
   depends_on "boost"
+  depends_on "brotli"
   depends_on "jq"
   depends_on "libarchive"
-  depends_on "sqlite"
-  depends_on "libsodium"
-  depends_on "nlohmann-json"
   depends_on "libeditline@1.17.1"
+  depends_on "libsodium"
   depends_on "lowdown@0.11.2"
+  depends_on "nlohmann-json"
+  depends_on "openssl@1.1"
+  depends_on "sqlite"
 
   def nix_root
     "/opt/nix"
@@ -42,10 +41,14 @@ class NixAT270 < Formula
         "--with-store-dir=#{nix_root}/store",
         "--sharedstatedir=#{nix_root}/com",
         "--localstatedir=#{nix_root}/var",
-        "--disable-doc-gen" # otherwise it fails with "I/O error : Attempt to load network entity http://docbook.org/xml/5.0/rng/docbook.rng" (see https://github.com/NixOS/nix/pull/1066)
+        "--disable-doc-gen" # [1]
     system "make"
     system "make", "install", "-j1"
   end
+
+  # [1]: otherwise it fails with "I/O error : Attempt to load network entity
+  # http://docbook.org/xml/5.0/rng/docbook.rng"
+  # (see https://github.com/NixOS/nix/pull/1066)
 
   def caveats
     <<~EOS

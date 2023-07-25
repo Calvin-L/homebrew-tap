@@ -1,14 +1,13 @@
 class TlapmAT202210041448 < Formula
-  desc "The TLA+ Proof Manager"
+  desc "TLA+ Proof Manager"
   homepage "https://tla.msr-inria.inria.fr/tlaps/"
   url "https://github.com/tlaplus/tlapm/archive/202210041448.tar.gz"
-  version "202210041448"
   sha256 "c6c046f8cfc211bfee912bd6d6d736d9375411c7dad109bd3651c748e0d5550c"
-  license "BSD2"
-
-  depends_on "ocaml" => :build
+  license "BSD-2-Clause"
 
   keg_only "the `tlaps` package installs a `tlapm` wrapper script with better defaults"
+
+  depends_on "ocaml" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}"

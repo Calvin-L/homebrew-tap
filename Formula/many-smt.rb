@@ -6,14 +6,14 @@ class ManySmt < Formula
   license "MIT"
 
   depends_on "python@3"
-  depends_on "z3" => :recommended
   depends_on "calvin-l/tap/cvc5" => :recommended
+  depends_on "z3" => :recommended
   depends_on "mht208/formal/boolector" => :optional
   depends_on "sri-csl/sri-csl/yices2" => :optional
 
   def install
     mkdir_p bin
-    cp "many-smt", bin
+    bin.install "many-smt"
   end
 
   test do

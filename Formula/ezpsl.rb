@@ -1,5 +1,5 @@
 class Ezpsl < Formula
-  desc ""
+  desc "Easy parallel algorithm specification language"
   homepage "https://github.com/Calvin-L/ezpsl"
   url "https://github.com/Calvin-L/ezpsl/archive/031f9679c1bc1fe9390f6601cff65e4c208ec4b5.tar.gz"
   version "0.4"

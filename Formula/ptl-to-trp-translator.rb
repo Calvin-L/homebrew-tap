@@ -1,10 +1,10 @@
 class PtlToTrpTranslator < Formula
-  desc "A translator from PTL syntax to TRP++ syntax"
+  desc "Translator from PTL syntax to TRP++ syntax"
   homepage "https://cgi.csc.liv.ac.uk/~konev/software/trp++/"
   url "https://cgi.csc.liv.ac.uk/%7Ekonev/software/trp++/translator/translate.tar.bz2"
-  sha256 "234f5cc8e71d4575639324e84b353e129449121af4f9e62d7d51118e504ce569"
-  license "GPL"
   version "0.0" # NOTE: very small project; unversioned
+  sha256 "234f5cc8e71d4575639324e84b353e129449121af4f9e62d7d51118e504ce569"
+  license "GPL-2.0-or-later"
 
   depends_on "ocaml" => :build
 

@@ -1,10 +1,10 @@
 class SymfpuAT2019517 < Formula
-  desc "cvc5 is an open-source automatic theorem prover for Satisfiability Modulo Theories (SMT) problems."
+  desc "Concrete/symbolic implementation of IEEE-754/SMT-LIB floating-point"
   homepage "https://github.com/martin-cs/symfpu"
   url "https://github.com/martin-cs/symfpu/archive/8fbe139bf0071cbe0758d2f6690a546c69ff0053.tar.gz"
   version "2019.5.17"
   sha256 "da0baeefb84fb00ad44ad6993d97c2e6cc3568f9aed0d9e8693aa6b599752e5b"
-  license "GPL3"
+  license "GPL-3.0-only"
 
   def install
     mkdir_p include/"symfpu"
