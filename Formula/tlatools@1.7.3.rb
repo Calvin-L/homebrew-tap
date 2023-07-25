@@ -6,7 +6,7 @@ class TlatoolsAT173 < Formula
   url "https://github.com/tlaplus/tlaplus.git", revision: "v1.7.3"
   version "1.7.3"
   license "MIT"
-  revision 1
+  revision 2
 
   depends_on "ant" => :build
   depends_on "java"
@@ -39,7 +39,7 @@ class TlatoolsAT173 < Formula
     exes.each do |exe, cls|
       script = <<~EOS
         #!/bin/bash
-        exec java -XX:+UseParallelGC -DTLA-Library="$TLA_PATH" -cp '#{libexec}/tla2tools.jar' #{cls} "$@"
+        exec #{Formula["java"].bin}/java -XX:+UseParallelGC -DTLA-Library="$TLA_PATH" -cp '#{libexec}/tla2tools.jar' #{cls} "$@"
       EOS
       (bin/exe).write script
       chmod 0755, bin/exe
