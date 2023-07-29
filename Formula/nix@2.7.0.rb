@@ -4,6 +4,7 @@ class NixAT270 < Formula
   url "https://github.com/NixOS/nix/archive/2.7.0.tar.gz"
   sha256 "db8943317f5562f27072b39f670e6016c7fc31de15ae38a2c409c74fd1329cc9"
   license "LGPL-2.1-only"
+  revision 1
 
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
@@ -23,7 +24,7 @@ class NixAT270 < Formula
   depends_on "lowdown@0.11.2"
   depends_on "nlohmann-json"
   depends_on "openssl@1.1"
-  depends_on "sqlite"
+  uses_from_macos "sqlite"
 
   def nix_root
     "/opt/nix"
@@ -91,15 +92,6 @@ class NixAT270 < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test ezpsl`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    system bin/"nix", "--version"
   end
 end
