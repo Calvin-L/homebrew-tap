@@ -1,7 +1,7 @@
 class IsabelleAT20111 < Formula
   desc "Isabelle is a generic proof assistant"
   homepage "https://isabelle.in.tum.de"
-  url "https://isabelle.in.tum.de/website-Isabelle#{version}/dist/Isabelle#{version}.tar.gz"
+  url "https://isabelle.in.tum.de/website-Isabelle2011-1/dist/Isabelle2011-1.tar.gz"
   version "2011-1"
   sha256 "48d77fe31a16b44f6015aa7953a60bdad8fcec9e60847630dc7b98c053edfc08"
   license "BSD-3-Clause"
