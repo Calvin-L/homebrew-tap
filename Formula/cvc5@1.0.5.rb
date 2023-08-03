@@ -4,7 +4,7 @@ class Cvc5AT105 < Formula
   url "https://github.com/cvc5/cvc5/archive/cvc5-1.0.5.tar.gz"
   sha256 "a9705569fe36c70291dd1eb6dc5f542d33da51f82da46558e3455ed6995b1b7a"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   depends_on "antlr@3.4" => :build
   depends_on "cadical" => :build
@@ -16,7 +16,7 @@ class Cvc5AT105 < Formula
   depends_on "symfpu@2019.5.17" => :build # header-only library
   depends_on "gmp"
   depends_on "libantlr3c"
-  depends_on "libpoly-b3a3bf82"
+  depends_on "sri-csl/sri-csl/libpoly"
 
   def install
     system "./configure.sh", "production", "--prefix=#{prefix}"
