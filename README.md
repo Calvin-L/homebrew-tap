@@ -29,6 +29,7 @@ Also, some of my own projects:
  - [ezpsl](https://github.com/Calvin-L/ezpsl), a system modeling language
  - [retry-forever](https://github.com/Calvin-L/retry-forever)
  - [many-smt](https://github.com/Calvin-L/many-smt), an SMT solver wrapper
+ - [caltac](https://github.com/Calvin-L/caltac), a set of simple Coq tactics
 
 ## Notes
 
