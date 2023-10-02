@@ -5,10 +5,10 @@ class TlatoolsAT180 < Formula
   # so we need to clone rather than download.
   # NOTE: (2022/8/26) Version 1.8.0 tag is still in flux, so I'm pinning the
   # exact commit here.
-  url "https://github.com/tlaplus/tlaplus.git", revision: "45700fd1cc752ca9f921b33d8b3c050c737da9d8"
+  url "https://github.com/tlaplus/tlaplus.git", revision: "dfbf8cea876cddbb114c00a7f865255183363f5c"
   version "1.8.0"
   license "MIT"
-  revision 5
+  revision 6
 
   depends_on "ant" => :build
   depends_on "java"
