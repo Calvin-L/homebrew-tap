@@ -1,11 +1,11 @@
 class Caltac < Formula
   desc "Calvin's basic Coq tactics"
   homepage "https://github.com/Calvin-L/caltac"
-  url "https://github.com/Calvin-L/caltac/archive/80d7f6c99ed9fe240f8099b54a8643fc37a40c94.tar.gz"
+  url "https://github.com/Calvin-L/caltac/archive/41badb91eba40638e99688adcaf05422c625e1d2.tar.gz"
   version "0.0.1"
-  sha256 "acf217678929a3ef612511a7994176122e6bfcbbde0ed8a0d23cb114b97757c0"
+  sha256 "87650880bda42e35df39e1e46e5dccc9fdb689a4f8f6a8e5d88d9110bd1b7e70"
   license "MIT"
-  revision 1
+  revision 2
 
   depends_on "coq"
   depends_on "coqhammer-tactics@1.3.2"
