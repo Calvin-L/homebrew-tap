@@ -1,7 +1,7 @@
 class TlapmAT202210041448 < Formula
   desc "TLA+ Proof Manager"
   homepage "https://tla.msr-inria.inria.fr/tlaps/"
-  url "https://github.com/tlaplus/tlapm/archive/202210041448.tar.gz"
+  url "https://github.com/tlaplus/tlapm/archive/refs/tags/202210041448.tar.gz"
   sha256 "c6c046f8cfc211bfee912bd6d6d736d9375411c7dad109bd3651c748e0d5550c"
   license "BSD-2-Clause"
 
