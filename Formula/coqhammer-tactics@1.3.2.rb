@@ -1,11 +1,11 @@
 class CoqhammerTacticsAT132 < Formula
   desc "Automated Reasoning Hammer Tool for Coq"
   homepage "https://coqhammer.github.io/"
-  url "https://github.com/lukaszcz/coqhammer/archive/refs/tags/v1.3.2+8.17.tar.gz"
+  url "https://github.com/lukaszcz/coqhammer/archive/refs/tags/v1.3.2+8.18.tar.gz"
   version "1.3.2"
-  sha256 "e71f1b8f738be3ec663dc2f28805173b12361ff955239ece9144b5f9363692d2"
+  sha256 "4c619b72bed0963436eca485bfceda8448790e8cd128292385a970190c0eed6a"
   license "LGPL-2.1-only"
-  revision 4
+  revision 5
 
   depends_on "ocaml" => :build
   depends_on "ocaml-findlib" => :build
