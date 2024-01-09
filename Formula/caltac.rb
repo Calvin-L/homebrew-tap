@@ -5,7 +5,7 @@ class Caltac < Formula
   version "0.0.1"
   sha256 "87650880bda42e35df39e1e46e5dccc9fdb689a4f8f6a8e5d88d9110bd1b7e70"
   license "MIT"
-  revision 2
+  revision 3
 
   depends_on "coq"
   depends_on "coqhammer-tactics@1.3.2"
